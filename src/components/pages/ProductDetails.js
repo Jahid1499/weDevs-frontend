@@ -32,7 +32,7 @@ class ProductDetails extends Component {
     }
 
     sendMyData=(id)=>{
-        axios.post('/order-store', {
+        axios.post('http://localhost:8000/product/order-store', {
             product_id: id,
             user_id: 2,
             payment_status:"Done",

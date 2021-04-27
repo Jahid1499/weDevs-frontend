@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from "react-router-dom";
 import {Container, Nav, Navbar} from "react-bootstrap";
+import logo from '../asset/img/logo.png';
 
 class MyNavigation extends Component {
     render() {
@@ -8,7 +9,7 @@ class MyNavigation extends Component {
             <div>
                 <Navbar bg="light" variant="light">
                     <Container>
-                        <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                        <Navbar.Brand><NavLink activeStyle={{color:"green"}} to="/"><img src={logo} alt="Logo"/></NavLink></Navbar.Brand>
                         <Nav className="ml-auto">
                             <Nav.Link><NavLink activeStyle={{color:"green"}} to="/">Home</NavLink></Nav.Link>
                             <Nav.Link><NavLink activeStyle={{color:"green"}} to="/order">Order</NavLink></Nav.Link>
