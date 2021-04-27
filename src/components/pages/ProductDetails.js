@@ -31,21 +31,23 @@ class ProductDetails extends Component {
 
     }
 
+
     sendMyData=(id)=>{
-        axios.post('http://localhost:8000/product/order-store', {
-            product_id: id,
+        let url = "http://localhost:8000/order-store";
+        let data = JSON.stringify({product_id: id,
             user_id: 2,
             payment_status:"Done",
             order_status:"Processing",
             total: this.state.total,
-            quantity: this.state.quantity
-        })
-            .then(function (response) {
-                alert("Successfully placed order")
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            quantity: this.state.quantity});
+
+        axios.post(url,data,{headers:{"Content-Type" : "application/x-www-form-urlencoded"}})
+            .then((r)=>{
+                alert(r.data);
+                window.location.href = "http://localhost:3000/order";
+            }).catch((e)=>{
+                alert(e)
+        });
     }
     quantityHandelar=(event)=>{
         let quantity = event.target.value;
