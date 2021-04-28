@@ -18,14 +18,22 @@ class Order extends Component {
             });
     }
 
-    cancleOrder=(id)=>{
 
+    cancleOrder=(id)=>{
+        let url = "http://localhost:8000/order-delete/"+id;
+        axios.delete(url)
+            .then((r)=>{
+                alert(r.data);
+            }).catch((e)=>{
+            alert(e)
+        });
     }
     render() {
 
         const myList = this.state.order;
         const myOrder = myList.map((data)=>{
             return <tr>
+                <td>{1}</td>
                 <td>{data.id}</td>
                 <td>{data.product_id}</td>
                 <td>{data.payment_status}</td>
@@ -49,6 +57,7 @@ class Order extends Component {
                             <th>Order Status</th>
                             <th>Total</th>
                             <th>Quantity</th>
+                            <th>Time</th>
                             <th>Action</th>
                         </tr>
                         </thead>

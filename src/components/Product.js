@@ -11,7 +11,7 @@ class Product extends Component {
         axios.get('http://localhost:8000/product')
             .then( (response)=> {
                 this.setState({product:response.data})
-                console.log(this.state.product);
+                //console.log(this.state.product);
             })
             .catch(function (error) {
                 console.log(error);
